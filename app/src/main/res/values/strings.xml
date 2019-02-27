@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Ness</string>
+    <string name="edit_message">Enten a message</string>
+    <string name="button_send">Send</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="rainbol" />
+</resources>

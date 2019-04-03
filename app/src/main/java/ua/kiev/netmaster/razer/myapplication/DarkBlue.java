@@ -1,78 +1,68 @@
 package ua.kiev.netmaster.razer.myapplication;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.app.TimePickerDialog;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.DialogTitle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ExpandableListView;
+import android.widget.SimpleExpandableListAdapter;
+import android.widget.TextView;
+import android.widget.TimePicker;
 import android.widget.Toast;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by RAZER on 08-Feb-18.
  */
 
-public class DarkBlue extends AppCompatActivity implements View.OnClickListener {
 
-   Button btnSave;
-   Button btnLoad;
-   EditText edText;
-   SharedPreferences sPref;
-   final String SAVED_TEXT = "saved_text";
+public class DarkBlue extends Activity {
 
 
+    int DIALOG_TIME = 1;
+    int myHour = 14;
+    int myMinute = 35;
+    TextView tvTime;
 
 
-    protected void onCreate(Bundle savedInstanceState) {
+
+public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dark_blue);
+    tvTime = (TextView) findViewById(R.id.tvTime);
 
-btnSave = (Button) findViewById(R.id.btnSave);
-btnLoad = (Button) findViewById(R.id.btnLoad);
-edText = (EditText) findViewById(R.id.edText);
-
-btnLoad.setOnClickListener(this);
-btnSave.setOnClickListener(this);
-        loadText();
-
-    }
-
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.btnSave:
-                saveText();
-                break;
-            case R.id.btnLoad:
-                loadText();
-                break;
-                default:
-                    break;
 
         }
 
 
-
-
+    public void time(View view) {
+    showDialog(DIALOG_TIME);
     }
-    private void saveText() {
-sPref = getPreferences(MODE_PRIVATE);
-SharedPreferences.Editor ed = sPref.edit();
-ed.putString(SAVED_TEXT, edText.getText().toString());
-ed.apply();
-        Toast.makeText(DarkBlue.this,"Text saved",Toast.LENGTH_SHORT).show();
-
-    }
-    private void loadText() {
-        sPref = getPreferences(MODE_PRIVATE);
-        String savedText = sPref.getString(SAVED_TEXT, "");
-        edText.setText(savedText);
-        Toast.makeText(DarkBlue.this,"Text loaded",Toast.LENGTH_SHORT).show();
+    protected Dialog onCreateDialog(int id) {
+    if (id == DIALOG_TIME){
+        TimePickerDialog tpd = new TimePickerDialog( this, myCallBack, myHour, myMinute, true );
+        return tpd;
     }
 
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-    saveText();
+        return super.onCreateDialog(id);
     }
+
+
+    TimePickerDialog.OnTimeSetListener myCallBack = new TimePickerDialog.OnTimeSetListener() {
+
+        public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+            myHour = hourOfDay;
+            myMinute = minute;
+            tvTime.setText("Time is " + myHour + " hours " + myMinute + " minutes");
+        }
+    };
 }

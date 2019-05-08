@@ -96,24 +96,6 @@ public class MainActivity extends AppCompatActivity  {
         }
     }
 
-   /* public void sendMessage(View view) {
-
-        Log.d(TAG, "обработка нажатия клавиши Send");
-        Intent intent = new Intent(this, DisplayMessageActivity.class);
-
-
-        String message = editText.getText().toString();
-        intent.putExtra(EXTRA_MESSAGE, message);
-
-        startActivity(intent);
-        Toast.makeText(this, "Нажал на кнопку - получай результат", Toast.LENGTH_LONG).show();
-
-
-    }
-*/
-
-
-
 
 //clickButton ------> sendMessage
 public void sendMessage (View v){

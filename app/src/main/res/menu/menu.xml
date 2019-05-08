@@ -4,7 +4,7 @@
     <!-- "Mark Favorite", should appear as action button if possible -->
     <item
         android:id="@+id/action_favorite"
-        android:icon="@drawable/ic_favorite_border_black_24dp"
+        android:icon="@drawable/round_looks_black_18dp"
         android:title="rainbow"
         android:visible="true"
         app:showAsAction="ifRoom" />
@@ -13,24 +13,24 @@
     <item
         android:id="@+id/action_R"
         android:enabled="true"
-        android:title="red SeekBar"
+        android:title="SeekBar"
         android:visible="true"
         app:showAsAction="never" />
     <item
         android:id="@+id/action_O"
-        android:title="orange Calc" />
+        android:title="Calculator" />
     <item
         android:id="@+id/action_Y"
-        android:title="yellow" />
+        android:title="Animation" />
     <item
         android:id="@+id/action_G"
-        android:title="green" />
+        android:title="Nifler" />
     <item
         android:id="@+id/action_B"
-        android:title="blue" />
+        android:title=" Links" />
     <item
         android:id="@+id/action_DB"
-        android:title="dark blue" />
+        android:title="Time" />
     <item
         android:id="@+id/action_V"
         android:title="violet" />

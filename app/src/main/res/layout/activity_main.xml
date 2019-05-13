@@ -4,13 +4,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fon"
+    android:background="@color/colorPrimaryDark"
     tools:context="ua.kiev.netmaster.razer.myapplication.MainActivity">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
         style="@style/Toolbar"
         android:layout_width="0dp"
+        android:background="@color/colorPrimary2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -38,6 +39,7 @@
         android:layout_marginStart="40dp"
         android:layout_marginLeft="40dp"
         android:layout_marginTop="8dp"
+        android:background="@color/colorPrimary"
         android:ems="10"
         android:hint="@string/edit_message"
         android:inputType="textPersonName"
@@ -52,6 +54,7 @@
         android:layout_width="95dp"
         android:layout_height="48dp"
         android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
         android:layout_marginEnd="40dp"
         android:layout_marginRight="40dp"
         android:background="@color/colorPrimary"
@@ -71,6 +74,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginBottom="8dp"
+        android:background="@color/colorPrimary"
         app:layout_constraintBottom_toTopOf="@+id/llMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/btnClear"
@@ -83,6 +87,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:background="@color/colorPrimary"
             android:text="Center"
             android:theme="@style/MyRadioButton" />
 
@@ -108,7 +113,7 @@
     <LinearLayout
         android:id="@+id/llMain"
         android:layout_width="0dp"
-        android:layout_height="479dp"
+        android:layout_height="480dp"
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

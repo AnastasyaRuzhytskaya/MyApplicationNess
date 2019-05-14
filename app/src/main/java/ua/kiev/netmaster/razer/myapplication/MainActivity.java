@@ -1,5 +1,7 @@
 package ua.kiev.netmaster.razer.myapplication;
 
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,14 +18,17 @@ import android.widget.RadioGroup;
 import android.widget.Toast;
 
 
-public class MainActivity extends AppCompatActivity  {
+
+public class MainActivity extends AppCompatActivity {
+
+    FragmentManager fragmentManager = getFragmentManager();
+    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+    ColorRain rain = new ColorRain();
 
 
     public static final String EXTRA_MESSAGE = "com.example.MyApplicationNess.MESSAGE";
     public static final String TAG = "myLogs";
     private View view;
-
-
 
 
     @Override
@@ -45,17 +50,17 @@ public class MainActivity extends AppCompatActivity  {
     public boolean onOptionsItemSelected(MenuItem item) {
         Log.d(TAG, "Выбор кнопки по ид");
         switch (item.getItemId()) {
+            case R.id.action_favorite:
+                fragmentTransaction.add(R.id.constr, rain);
+                fragmentTransaction.commit();
+                Toast.makeText(this, "Радуга - флаг геев :)", Toast.LENGTH_LONG).show();
+                break;
+
             case R.id.action_R:
                 Intent iR = new Intent(this, Red.class);
                 startActivity(iR);
                 Log.d(TAG, "rainbow");
                 Toast.makeText(this, "Зеленым небо, красным облака - а больше краски не было у чудака", Toast.LENGTH_LONG).show();
-                return true;
-
-            case R.id.action_favorite:
-                Intent iRain = new Intent(this, ColorRain.class);
-                startActivity(iRain);
-                Toast.makeText(this, "Радуга - флаг геев :)", Toast.LENGTH_LONG).show();
                 return true;
             case R.id.action_O:
                 Intent iO = new Intent(this, Orange.class);
@@ -87,30 +92,25 @@ public class MainActivity extends AppCompatActivity  {
                 startActivity(iV);
                 Toast.makeText(this, "Фиолетовый - цвет депрессии. С тобой все впорядке?", Toast.LENGTH_LONG).show();
                 return true;
-
-            default:
-
-
-                return super.onOptionsItemSelected(item);
-
         }
+        return super.onOptionsItemSelected(item);
     }
 
 
-//clickButton ------> sendMessage
-public void sendMessage (View v){
-    int wrapContent = LinearLayout.LayoutParams.WRAP_CONTENT;
-    LinearLayout llMain = (LinearLayout) findViewById(R.id.llMain);
-    RadioGroup rGroup = (RadioGroup) findViewById(R.id.rGroup);
-    EditText editText = (EditText) findViewById(R.id.editText);
+
+    public void sendMessage(View v) {
+        int wrapContent = LinearLayout.LayoutParams.WRAP_CONTENT;
+        LinearLayout llMain = (LinearLayout) findViewById(R.id.llMain);
+        RadioGroup rGroup = (RadioGroup) findViewById(R.id.rGroup);
+        EditText editText = (EditText) findViewById(R.id.editText);
 
 
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.button2:
                 LinearLayout.LayoutParams myParams = new LinearLayout.LayoutParams(wrapContent, wrapContent);
                 int btnGravity = Gravity.LEFT;
 
-                switch (rGroup.getCheckedRadioButtonId()){
+                switch (rGroup.getCheckedRadioButtonId()) {
                     case R.id.btnLeft:
                         btnGravity = Gravity.LEFT;
                         break;
@@ -125,7 +125,7 @@ public void sendMessage (View v){
 
                 Button newButt = new Button(this);
                 newButt.setText(editText.getText().toString());
-                llMain.addView(newButt,myParams);
+                llMain.addView(newButt, myParams);
                 Toast.makeText(this, "Создан объект", Toast.LENGTH_LONG).show();
                 break;
             case R.id.btnClear:
@@ -136,7 +136,8 @@ public void sendMessage (View v){
 
         }
 
+    }
 }
 
-}
+
 

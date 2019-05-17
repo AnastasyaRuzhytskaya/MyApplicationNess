@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     FragmentManager fragmentManager = getFragmentManager();
     FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
     ColorRain rain = new ColorRain();
-
+    First first = new First();
 
     public static final String EXTRA_MESSAGE = "com.example.MyApplicationNess.MESSAGE";
     public static final String TAG = "myLogs";
@@ -37,6 +37,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        fragmentTransaction.add(R.id.main, first);
+
 
     }
 
@@ -51,8 +53,10 @@ public class MainActivity extends AppCompatActivity {
         Log.d(TAG, "Выбор кнопки по ид");
         switch (item.getItemId()) {
             case R.id.action_favorite:
-                fragmentTransaction.add(R.id.constr, rain);
+                fragmentTransaction.add(R.id.main, rain);
                 fragmentTransaction.commit();
+
+
                 Toast.makeText(this, "Радуга - флаг геев :)", Toast.LENGTH_LONG).show();
                 break;
 
@@ -96,47 +100,6 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-
-    public void sendMessage(View v) {
-        int wrapContent = LinearLayout.LayoutParams.WRAP_CONTENT;
-        LinearLayout llMain = (LinearLayout) findViewById(R.id.llMain);
-        RadioGroup rGroup = (RadioGroup) findViewById(R.id.rGroup);
-        EditText editText = (EditText) findViewById(R.id.editText);
-
-
-        switch (v.getId()) {
-            case R.id.button2:
-                LinearLayout.LayoutParams myParams = new LinearLayout.LayoutParams(wrapContent, wrapContent);
-                int btnGravity = Gravity.LEFT;
-
-                switch (rGroup.getCheckedRadioButtonId()) {
-                    case R.id.btnLeft:
-                        btnGravity = Gravity.LEFT;
-                        break;
-                    case R.id.btnCenter:
-                        btnGravity = Gravity.CENTER;
-                        break;
-                    case R.id.btnRight:
-                        btnGravity = Gravity.RIGHT;
-                        break;
-                }
-                myParams.gravity = btnGravity;
-
-                Button newButt = new Button(this);
-                newButt.setText(editText.getText().toString());
-                llMain.addView(newButt, myParams);
-                Toast.makeText(this, "Создан объект", Toast.LENGTH_LONG).show();
-                break;
-            case R.id.btnClear:
-                llMain.removeAllViews();
-                Toast.makeText(this, "Удалено", Toast.LENGTH_LONG).show();
-                break;
-
-
-        }
-
-    }
 }
 
 

@@ -21,10 +21,10 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    FragmentManager fragmentManager = getFragmentManager();
-    FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
     ColorRain rain = new ColorRain();
     First first = new First();
+    Red red = new Red();
 
     public static final String EXTRA_MESSAGE = "com.example.MyApplicationNess.MESSAGE";
     public static final String TAG = "myLogs";
@@ -48,22 +48,27 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {
+        FragmentManager fragmentManager = getFragmentManager();
+        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+
+
+
         Log.d(TAG, "Выбор кнопки по ид");
         switch (item.getItemId()) {
             case R.id.action_favorite:
+
                 fragmentTransaction.add(R.id.main, rain);
-                fragmentTransaction.commit();
 
 
                 Toast.makeText(this, "Радуга - флаг геев :)", Toast.LENGTH_LONG).show();
                 break;
 
             case R.id.action_R:
-                Intent iR = new Intent(this, Red.class);
-                startActivity(iR);
-                Log.d(TAG, "rainbow");
-                Toast.makeText(this, "Зеленым небо, красным облака - а больше краски не было у чудака", Toast.LENGTH_LONG).show();
-                return true;
+                fragmentTransaction.replace(R.id.main, red );
+
+                Toast.makeText(this, "Это фрагмент", Toast.LENGTH_LONG).show();
+                break;
+
             case R.id.action_O:
                 Intent iO = new Intent(this, Orange.class);
                 startActivity(iO);
@@ -94,8 +99,13 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(iV);
                 Toast.makeText(this, "Фиолетовый - цвет депрессии. С тобой все впорядке?", Toast.LENGTH_LONG).show();
                 return true;
+            default:
+                break;
+
         }
+        fragmentTransaction.commit();
         return super.onOptionsItemSelected(item);
+
     }
 
 }

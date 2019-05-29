@@ -36,6 +36,7 @@ public class Violet extends Activity {
                 break;
             case R.id.btnRemove:
                 fTrans.remove(frag1);
+                fTrans.remove(frag2);
                 break;
             case R.id.btnReplace:
                 fTrans.replace(R.id.frgmCont, frag2);

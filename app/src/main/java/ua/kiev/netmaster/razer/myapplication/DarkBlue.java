@@ -5,7 +5,10 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
+import android.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.DatePicker;
 import android.widget.TextView;
 import android.widget.TimePicker;
@@ -15,7 +18,7 @@ import android.widget.TimePicker;
  */
 
 
-public class DarkBlue extends Activity {
+public class DarkBlue extends Fragment {
 
 
     int DIALOG_TIME = 1;
@@ -25,10 +28,15 @@ public class DarkBlue extends Activity {
     TextView tvTime;
 
 
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.dark_blue);
-        tvTime = (TextView) findViewById(R.id.tvTime);
+    public View onCreateView(LayoutInflater inflater, ViewGroup containerDB,
+                             Bundle savedInstanceState) {
+
+
+        View vdb = inflater.inflate(R.layout.dark_blue, containerDB, false);
+
+
+        tvTime = (TextView) vdb.findViewById(R.id.tvTime);
+        return inflater.inflate(R.layout.dark_blue, null);
     }
 
 

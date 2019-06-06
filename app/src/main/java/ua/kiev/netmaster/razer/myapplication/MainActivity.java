@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
     ColorRain rain = new ColorRain();
     First first = new First();
     Red red = new Red();
+    Blue blue = new Blue();
 
     public static final String EXTRA_MESSAGE = "com.example.MyApplicationNess.MESSAGE";
     public static final String TAG = "myLogs";
@@ -57,18 +58,16 @@ public class MainActivity extends AppCompatActivity {
         switch (item.getItemId()) {
             case R.id.action_favorite:
 
-                fragmentTransaction.add(R.id.main, rain);
+                fragmentTransaction.replace(R.id.main, rain);
 
 
-                Toast.makeText(this, "Радуга - флаг геев :)", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Fragment :)", Toast.LENGTH_LONG).show();
                 break;
 
             case R.id.action_R:
                 fragmentTransaction.replace(R.id.main, red );
-
                 Toast.makeText(this, "Это фрагмент", Toast.LENGTH_LONG).show();
                 break;
-
             case R.id.action_O:
                 Intent iO = new Intent(this, Orange.class);
                 startActivity(iO);
@@ -85,10 +84,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Если у тебя зеленое лицо - ты Шрэк", Toast.LENGTH_LONG).show();
                 return true;
             case R.id.action_B:
-                Intent iB = new Intent(this, Blue.class);
-                startActivity(iB);
-                Toast.makeText(this, "Блу - это голубой, а бла - так говорит Дракула", Toast.LENGTH_LONG).show();
-                return true;
+                fragmentTransaction.replace(R.id.main, blue);
+                Toast.makeText(this, "Блу - это Fragment", Toast.LENGTH_LONG).show();
+                break;
             case R.id.action_DB:
                 Intent iDB = new Intent(this, DarkBlue.class);
                 startActivity(iDB);

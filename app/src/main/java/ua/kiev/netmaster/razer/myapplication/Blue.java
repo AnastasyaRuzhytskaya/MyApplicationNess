@@ -5,31 +5,30 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 
 
 
-public class Blue extends Fragment {
+public class Blue extends Fragment implements View.OnClickListener {
 
-    Button btnWeb;
-    Button btnMap;
-    Button btnCall;
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.blue);
 
-        btnWeb = (Button) findViewById(R.id.btnWeb);
-        btnMap = (Button) findViewById(R.id.btnMap);
-        btnCall = (Button) findViewById(R.id.btnCall);
+
+    public View onCreateView(LayoutInflater inflater, ViewGroup containerB,
+                             Bundle savedInstanceState) {
+
+        View vb = inflater.inflate(R.layout.blue, containerB, false);
+
+
+        Button btnWeb = (Button) vb.findViewById(R.id.btnWeb);
+        Button btnMap = (Button) vb.findViewById(R.id.btnMap);
+        Button btnCall = (Button) vb.findViewById(R.id.btnCall);
         btnWeb.setOnClickListener(this);
         btnMap.setOnClickListener(this);
-        btnCall.setOnClickListener(this);
-
-
-
-
-
+        btnCall.setOnClickListener( this);
+        return vb;
     }
 
     @Override

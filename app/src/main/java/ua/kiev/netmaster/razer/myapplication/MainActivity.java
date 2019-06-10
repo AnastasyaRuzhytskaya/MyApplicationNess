@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
     First first = new First();
     Red red = new Red();
     Blue blue = new Blue();
+    DarkBlue dark_blue = new DarkBlue();
+    Green green = new Green();
 
     public static final String EXTRA_MESSAGE = "com.example.MyApplicationNess.MESSAGE";
     public static final String TAG = "myLogs";
@@ -78,20 +80,19 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(iY);
                 Toast.makeText(this, "Желтое солнышко, желтый птенчик. Разве не чудесно?", Toast.LENGTH_LONG).show();
                 return true;
+
             case R.id.action_G:
-                Intent iG = new Intent(this, Green.class);
-                startActivity(iG);
-                Toast.makeText(this, "Если у тебя зеленое лицо - ты Шрэк", Toast.LENGTH_LONG).show();
-                return true;
+                fragmentTransaction.replace(R.id.main, green);
+                Toast.makeText(this, "Fragment green", Toast.LENGTH_LONG).show();
+                break;
             case R.id.action_B:
                 fragmentTransaction.replace(R.id.main, blue);
                 Toast.makeText(this, "Блу - это Fragment", Toast.LENGTH_LONG).show();
                 break;
             case R.id.action_DB:
-                Intent iDB = new Intent(this, DarkBlue.class);
-                startActivity(iDB);
-                Toast.makeText(this, "Ах, а когда-то у меня были синие глаза", Toast.LENGTH_LONG).show();
-                return true;
+                fragmentTransaction.replace(R.id.main, dark_blue );
+                Toast.makeText(this, "Fragment dark blue", Toast.LENGTH_LONG).show();
+                break;
             case R.id.action_V:
                 Intent iV = new Intent(this, Violet.class);
                 startActivity(iV);

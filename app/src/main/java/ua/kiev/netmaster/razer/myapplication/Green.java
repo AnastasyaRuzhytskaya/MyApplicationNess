@@ -5,35 +5,36 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
-/**
- * Created by RAZER on 08-Feb-18.
- */
 
-public class Green extends AppCompatActivity implements View.OnClickListener {
-    final Context context = this;
+
+public class Green extends Fragment implements View.OnClickListener {
+
+     /*Context context = this ;
     TextView tvNifler;
-    Button btnNifler;
+    Button btnNifler;*/
+    public View onCreateView(LayoutInflater inflater, ViewGroup containerG,
+                             Bundle savedInstanceState) {
+        View vg = inflater.inflate(R.layout.green, containerG, false);
 
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.green);
-
-        tvNifler = (TextView) findViewById(R.id.text_nifler);
-        btnNifler = (Button) findViewById(R.id.btn_nifler);
-        btnNifler.setOnClickListener(this);
+        /*tvNifler = (TextView) vg.findViewById(R.id.text_nifler);
+        btnNifler = (Button) vg.findViewById(R.id.btn_nifler);
+        btnNifler.setOnClickListener(this);*/
+        return vg;
     }
 
     @Override
     public void onClick(View v) {
-        AlertDialog.Builder mDialogBuilder = new AlertDialog.Builder(context);
+       /* AlertDialog.Builder mDialogBuilder = new AlertDialog.Builder(context);
         LayoutInflater li = LayoutInflater.from(context);
         View promptsView = li.inflate(R.layout.nifler, null);
 
@@ -61,7 +62,7 @@ public class Green extends AppCompatActivity implements View.OnClickListener {
         AlertDialog alertDialog = mDialogBuilder.create();
 
         //и отображаем его:
-        alertDialog.show();
+        alertDialog.show();*/
 
     }
 }

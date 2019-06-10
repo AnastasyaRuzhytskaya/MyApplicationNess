@@ -6,6 +6,7 @@ import android.app.Dialog;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.app.Fragment;
+import android.support.v4.app.DialogFragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +19,7 @@ import android.widget.TimePicker;
  */
 
 
-public class DarkBlue extends Fragment {
+public class DarkBlue extends Fragment  {
 
 
     int DIALOG_TIME = 1;
@@ -40,7 +41,7 @@ public class DarkBlue extends Fragment {
     }
 
 
-    public void time(View view) {
+    /* public void time(View view) {
         showDialog(DIALOG_TIME);
     }
 
@@ -62,6 +63,5 @@ public class DarkBlue extends Fragment {
            myDay = day+1;
 
             tvTime.setText("Today is " + myDay + "/" + myMonth + "/" +  myYear + "/" );
-        }
-    };
-}
+        } */
+    }

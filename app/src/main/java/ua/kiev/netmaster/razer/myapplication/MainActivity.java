@@ -28,7 +28,9 @@ public class MainActivity extends AppCompatActivity {
     Blue blue = new Blue();
     DarkBlue dark_blue = new DarkBlue();
     Green green = new Green();
-
+    Orange orange = new Orange();
+    Violet violet = new Violet();
+    Yellow yellow = new Yellow();
     public static final String EXTRA_MESSAGE = "com.example.MyApplicationNess.MESSAGE";
     public static final String TAG = "myLogs";
     private View view;
@@ -71,18 +73,17 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Это фрагмент", Toast.LENGTH_LONG).show();
                 break;
             case R.id.action_O:
-                Intent iO = new Intent(this, Orange.class);
-                startActivity(iO);
-                Toast.makeText(this, "Оранджевый - новый черный! Крутой сериал", Toast.LENGTH_LONG).show();
-                return true;
+                fragmentTransaction.replace(R.id.main, orange );
+                Toast.makeText(this, "Оранджевый fragment", Toast.LENGTH_LONG).show();
+                break;
+
             case R.id.action_Y:
-                Intent iY = new Intent(this, Yellow.class);
-                startActivity(iY);
-                Toast.makeText(this, "Желтое солнышко, желтый птенчик. Разве не чудесно?", Toast.LENGTH_LONG).show();
-                return true;
+                fragmentTransaction.replace(R.id.main, yellow );
+                Toast.makeText(this, "Желтое Fragment", Toast.LENGTH_LONG).show();
+                break;
 
             case R.id.action_G:
-                fragmentTransaction.replace(R.id.main, green);
+                fragmentTransaction.replace(R.id.main, green );
                 Toast.makeText(this, "Fragment green", Toast.LENGTH_LONG).show();
                 break;
             case R.id.action_B:
@@ -94,10 +95,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Fragment dark blue", Toast.LENGTH_LONG).show();
                 break;
             case R.id.action_V:
-                Intent iV = new Intent(this, Violet.class);
-                startActivity(iV);
-                Toast.makeText(this, "Фиолетовый - цвет депрессии. С тобой все впорядке?", Toast.LENGTH_LONG).show();
-                return true;
+                fragmentTransaction.replace(R.id.main, violet );
+                Toast.makeText(this, "Фиолетовый - цвет депрессии. Fragment", Toast.LENGTH_LONG).show();
+                break;
             default:
                 break;
 

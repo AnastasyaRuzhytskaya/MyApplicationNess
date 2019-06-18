@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.SeekBar;
+import android.widget.TextView;
 
 
 public class Red extends Fragment implements SeekBar.OnSeekBarChangeListener {
@@ -21,19 +22,20 @@ public class Red extends Fragment implements SeekBar.OnSeekBarChangeListener {
     LinearLayout.LayoutParams lParams1;
     LinearLayout.LayoutParams lParams2;
 
-
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+    public View onCreateView(LayoutInflater inflater, ViewGroup containerR,
                              Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.red, container, false);
-        sBar = (SeekBar) v.findViewById(R.id.sBar);
+        View vr = inflater.inflate(R.layout.red, containerR, false);
+        sBar = (SeekBar) vr.findViewById(R.id.sBar);
         sBar.setOnSeekBarChangeListener(this);
-        btn1 = (Button) v.findViewById(R.id.btn1);
-        btn2 = (Button)v.findViewById(R.id.btn2);
+        btn1 = (Button) vr.findViewById(R.id.btn1);
+        btn2 = (Button)vr.findViewById(R.id.btn2);
 
         lParams1 = (LinearLayout.LayoutParams) btn1.getLayoutParams();
         lParams2 = (LinearLayout.LayoutParams) btn2.getLayoutParams();
-        return v;
+        return vr;
     }
+
+
 
 
     @Override

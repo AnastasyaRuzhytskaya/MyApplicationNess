@@ -1,11 +1,14 @@
 package ua.kiev.netmaster.razer.myapplication;
 
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.app.Fragment;
+
 import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,7 +17,7 @@ import android.widget.TextView;
  * Created by RAZER on 08-Feb-18.
  */
 
-public class Orange extends AppCompatActivity implements View.OnClickListener {
+public class Orange extends Fragment implements View.OnClickListener {
     Button btnAdd;
     Button btnSub;
     Button btnMult;
@@ -27,30 +30,28 @@ public class Orange extends AppCompatActivity implements View.OnClickListener {
 
     String oper = "";
 
+    public View onCreateView(LayoutInflater inflater, ViewGroup containerO,
+                             Bundle savedInstanceState) {
+        View vo = inflater.inflate(R.layout.orange, containerO, false);
+        btnAdd = (Button) vo.findViewById(R.id.btnAdd);
+        btnSub = (Button) vo.findViewById(R.id.btnSub);
+        btnMult = (Button)vo.findViewById(R.id.btnMult);
+        btnDiv = (Button) vo.findViewById(R.id.btnDiv);
 
+        etNum1 = (EditText)vo.findViewById(R.id.etNum1);
+        etNum2 = (EditText) vo.findViewById(R.id.etNum2);
 
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.orange);
-
-        btnAdd = (Button) findViewById(R.id.btnAdd);
-        btnSub = (Button) findViewById(R.id.btnSub);
-        btnMult = (Button)findViewById(R.id.btnMult);
-        btnDiv = (Button) findViewById(R.id.btnDiv);
-
-        etNum1 = (EditText)findViewById(R.id.etNum1);
-        etNum2 = (EditText) findViewById(R.id.etNum2);
-
-        tvResult = (TextView) findViewById(R.id.tvResult);
+        tvResult = (TextView) vo.findViewById(R.id.tvResult);
 
         btnAdd.setOnClickListener(this);
         btnSub.setOnClickListener(this);
         btnMult.setOnClickListener(this);
         btnDiv.setOnClickListener(this);
-
-
-
+        return vo;
     }
+
+
+
 
     @Override
     public void onClick(View v) {
